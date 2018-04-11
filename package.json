@@ -1,8 +1,8 @@
 {
-  "name": "crypto-purr",
+  "name": "robohash",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://userfeeds.github.io/cryptopurr",
+  "homepage": "http://userfeeds.github.io/robohash",
   "dependencies": {
     "dompurify": "^1.0.3",
     "gh-pages": "^1.1.0",
@@ -30,7 +30,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "compile-contracts": "truffle compile && cp build/contracts/RoboHashToken.json src/abi/"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.15",
