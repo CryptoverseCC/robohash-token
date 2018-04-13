@@ -34,7 +34,7 @@ contract('RoboHashToken', () => {
 
 	it("return url for created tokenId", async () => {
 		const instance = await RoboHashToken.deployed();
-		const tokenUrl = await instance.getTokenUrl(1);
+		const tokenUrl = await instance.getTokenUrl("Userfeeds");
 		assert.equal(tokenUrl, "http://robohash.org/Userfeeds.png");
 	});
 });
