@@ -9,7 +9,7 @@ const roboHashTokenArtifacts = require('./abi/RoboHashToken.json');
 const web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/zMyYPjYpS74gHWKz5ILQ'));
 const contractInstance = new web3.eth.Contract(
   roboHashTokenArtifacts.abi,
-  '0xfa9d471300b0a4cc40ad4dfa5846864973520f45'
+  '0xb0f86914d84d4198ea7c3f7687d224fedef571c5'
 );
 
 export const getEntityData = async entityId => {
@@ -35,7 +35,7 @@ export const createRoboHash = async name => {
   const { from, web3 } = await getWeb3State();
   const contractInstance = new web3.eth.Contract(
     roboHashTokenArtifacts.abi,
-    '0xfa9d471300b0a4cc40ad4dfa5846864973520f45'
+    '0xb0f86914d84d4198ea7c3f7687d224fedef571c5'
   );
   await contractInstance.methods.create(name).send({ from });
 };
