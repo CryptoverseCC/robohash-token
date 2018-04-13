@@ -17,6 +17,7 @@ export const getEntityData = async entityId => {
     const responseTokenUrl = await contractInstance.methods.getTokenUrl(entityId).call();
     const tokenName = responseTokenName.valueOf();
     const tokenUrl = responseTokenUrl.valueOf();
+    debugger;
     return {
       id: entityId,
       name: tokenName,
