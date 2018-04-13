@@ -15,6 +15,11 @@ export default class CommentForm extends React.Component {
     this.props.onSubmit && this.props.onSubmit();
   };
 
+  onChange = (e) => {
+    this.setState({ comment: e.target.value });
+    this.props.onChange && this.props.onChange(e);
+  }
+
   render() {
     return (
       <form
@@ -41,7 +46,7 @@ export default class CommentForm extends React.Component {
           }}
           placeholder={this.props.placeholder}
           value={this.state.comment}
-          onChange={e => this.setState({ comment: e.target.value })}
+          onChange={this.onChange}
           onKeyPress={e => e.key === 'Enter' && e.ctrlKey && this.submitForm()}
         />
         <button
