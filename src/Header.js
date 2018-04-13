@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ActiveEntityAvatar, ActiveEntityName, IfActiveEntity, Entities, EntityAvatar, EntityName } from './Entity';
-import TranslationsContext from './Translations';
+import WithRouter from './WithRouter';
 
 const Header = () => {
   return (
@@ -30,9 +30,11 @@ const Header = () => {
         <IfActiveEntity
           then={() => <CatDropdown />}
           other={
-            <TranslationsContext.Consumer>
-              {({ noEntitiesError }) => <ErrorStatus message={noEntitiesError} />}
-            </TranslationsContext.Consumer>
+            <div className="column has-text-right">
+              <WithRouter>
+                {({ history }) => <button onClick={() => history.push('/new')}>Add new bot!</button>}
+              </WithRouter>
+            </div>
           }
         />
       </div>
