@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentForm from './CommentForm';
 import IdentityAvatar from './Avatar';
+import { createRoboHash } from './entityApi';
 
 const PLACEHOLDER = "Your RoboHash"
 
@@ -9,8 +10,8 @@ export default class NewPage extends React.Component {
     value: ''
   };
 
-  onSubmit = e => {
-    e.preventDefault();
+  onSubmit = async (name) => {
+    createRoboHash(name);
   };
 
   onInputChange = e => {
@@ -38,7 +39,7 @@ export default class NewPage extends React.Component {
                 fontWeight: 'normal'
               }}
               onChange={this.onInputChange}
-              sendMessage={(a, b) => console.log(a)}
+              sendMessage={this.onSubmit}
               placeholder={PLACEHOLDER}
             />
           </div>
