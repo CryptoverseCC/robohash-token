@@ -31,14 +31,35 @@ const Header = () => {
           then={() => <CatDropdown />}
           other={
             <div className="column has-text-right">
-              <WithRouter>
-                {({ history }) => <button onClick={() => history.push('/new')}>Add new bot!</button>}
-              </WithRouter>
+              <NewEntityButton />
             </div>
           }
         />
       </div>
     </div>
+  );
+};
+
+const NewEntityButton = () => {
+  return (
+    <WithRouter>
+      {({ history }) => (
+        <button
+          className="dropdown-item cp-dropdown-item"
+          onClick={() => history.push('/new')}
+          style={{
+            border: 'none',
+            background: 'none',
+            outline: 'none',
+            cursor: 'pointer',
+            marginLeft: 'auto',
+            borderRadius: '33px'
+          }}
+        >
+          Create Bot!
+        </button>
+      )}
+    </WithRouter>
   );
 };
 

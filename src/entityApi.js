@@ -2,7 +2,6 @@ import React from 'react';
 import etherDiamond from './img/logo.png';
 
 import Web3 from 'web3';
-import getWeb3 from './web3';
 import { getWeb3State } from './api';
 const roboHashTokenArtifacts = require('./abi/RoboHashToken.json');
 
