@@ -113,7 +113,7 @@ It is much more pleasant for the user if your token can be visualized. Cryptokit
 	    for (uint i = 0; i < firstBytes.length; i++) resultBytes[k++] = firstBytes[i];
 	    for (i = 0; i < secondBytes.length; i++) resultBytes[k++] = secondBytes[i];
 	    for (i = 0; i < thirdBytes.length; i++) resultBytes[k++] = thirdBytes[i];
-	    return string(resultBytes);
+	    return result;
 	}
 ``` 
 
@@ -189,7 +189,7 @@ If you call it and everything passes you will become an owner of your unique ERC
 ## 4. Building social layer
 To build our website we will use an existing one `https://userfeeds.github.io/cryptopurr/`. I'm not going to explain how this website works under the hood in details, rather then I will focus on changes we need to make to support our robohashTokens. 
 
-First let's clone cryptopurr to new directory:
+First let's clone cryptopurr to a new directory:
 
 `git clone git@github.com:Userfeeds/cryptopurr.git`
 
@@ -284,3 +284,11 @@ export const avatarSizes = {
 
 Congratulations, you have built your own social platform for your collectibles!
 Because the application consists only of frontend you can deploy it even using github pages!
+
+That's it. I hope that you enjoyed reading.
+All the code can be found in following repositories:
+- https://github.com/Userfeeds/robohash-book
+- https://github.com/Userfeeds/robohash-token
+
+If you look closely at https://github.com/Userfeeds/robohash-book repository you will find one additional commit ("Add create robohash page"). 
+As the name suggests it adds possibility to issue new tokens directly from our interface.
