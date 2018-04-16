@@ -2,7 +2,7 @@
 
 In the previous post we have discussed variety of usages for social layer build on top of erc721 tokens, as well as how such platform might work.
 Today we present a short tutorial which shows how to build a social platform for an existing erc721 token.
-To make this guide comperhensive the first part of this arcticle describes how to build your own erc721 token.
+To make this guide comprehensive the first part of this article describes how to build your own erc721 token.
 Next we will try to figure out how to add unique avatars to our token.
 If you know how to do that or you plan to add a social layer to token which already exists you can skip that part.
 
@@ -67,7 +67,7 @@ contract RoboHashToken is ERC721Token("RoboHashToken", "RHT") {
 As you can see all we need to do is to invoke internal function `_mint` which will do the whole creation for us.
 Congratulations you have just implement your own ERC721 token!
 
-But let's face it, this token is extremly tedius. 
+But let's face it, this token is extremely tedious. 
 Luckly, it doesn't take much more work to turn it into a naming service. Thanks to this users will be able to claim their names, identifiers, emails etc.
 All we need to do is to allow users to pass their identifiers to `create` function and store them into some kind of mapping.
 
@@ -96,7 +96,7 @@ contract RoboHashToken is ERC721Token("RoboHashToken", "RHT") {
 I have also created a reversed mapping, so it would be easy to check the identifier of the particular tokenId.
 
 ## 2. Token's avatar
-It is much more pleasent for the user if your token can be visualized. Cryptokitties tokens are represented by their png/svg images served from backend. The same story is with almost all collectibles. In order not to be worse, we will use https://robohash.org/ website to generate images from strings. Since we want all future website to display us in the same way we will add this logic to our contract. To do that we will have to concatenate robohash website with our token name and with '.png' postfix. Unfortunatelly solidity doesn't provide any built-in way to join strings, so we will do it manually. 
+It is much more pleasant for the user if your token can be visualized. Cryptokitties tokens are represented by their png/svg images served from backend. The same story is with almost all collectibles. In order not to be worse, we will use https://robohash.org/ website to generate images from strings. Since we want all future website to display us in the same way we will add this logic to our contract. To do that we will have to concatenate robohash website with our token name and with '.png' postfix. Unfortunately solidity doesn't provide any built-in way to join strings, so we will do it manually. 
 
 ```
 	function getTokenUrl(string tokenName) pure public returns (string) {
@@ -132,7 +132,7 @@ To access ethereum network we will use infura(https://infura.io/).
 
 Because deploying contracts costs some amount of ethereum we have to provide truffle access to our wallet. To prevent leaking our private key into the source code we are going to use `dotenv` module.
 
-Let’s install all of the modules we’ll need for deploying to Infura.
+Let's install all of the modules we'll need for deploying to Infura.
 
 `npm install --save-dev dotenv truffle-wallet-provider ethereumjs-wallet`
 
@@ -163,7 +163,7 @@ Next open your up `.env.local` and paste in your private key like so:
 `ROPSTEN_PRIVATE_KEY="123YourPrivateKeyHere"`
 Do not forget to add `.env.local` to your `.gitignore`!
 
-The Ethereum test networks are networks which you can use to test your contracts. There’s also Kovan and Rinkeby. I chose Ropsten for this tutorial because it’s the easiest to get Ropsten ETH at the moment. All are fairly similar and you can use whichever testnet you like but for the remainder of the tutorial I’ll assume you’re using ropsten. Visit https://faucet.metamask.io/ to request some test ETH. Once you get some ETH from the faucet you should be ready to deploy!
+The Ethereum test networks are networks which you can use to test your contracts. There's also Kovan and Rinkeby. I chose Ropsten for this tutorial because it's the easiest to get Ropsten ETH at the moment. All are fairly similar and you can use whichever testnet you like but for the remainder of the tutorial I'll assume you're using ropsten. Visit https://faucet.metamask.io/ to request some test ETH. Once you get some ETH from the faucet you should be ready to deploy!
 
 Ok, now we are ready to deploy our contract:
 `truffle deploy --network ropsten`
@@ -193,7 +193,7 @@ First let's clone cryptopurr to new directory:
 
 `git clone git@github.com:Userfeeds/cryptopurr.git`
 
-We will be particualry intersted in following files: (#todo: maybe high level overview of those files here)
+We will be particularly interested in following files: (#todo: maybe high level overview of those files here)
 1. `.env` 
 2. `package.json`
 3. `public/index.html`
@@ -203,7 +203,7 @@ Ad 1. `.env`
 
 Set following properties:
 - `REACT_APP_NAME` - Your app name (in my case RoboHash).
-- `REACT_APP_INTERFACE_VALUE` - Url where your website will be hosted. Although it is not neccessary you may benefit from it in the future.
+- `REACT_APP_INTERFACE_VALUE` - Url where your website will be hosted. Although it is not necessary you may benefit from it in the future.
 - `REACT_APP_ERC_721_NETWORK` - Name of the network where your ERC721 contract is deployed. Please note that even that your address is deployed on particular network the users will be able to create messages also on other networks.
 - `REACT_APP_ERC_721_ADDRESS` - Address of your ERC721 contract. 
 - `REACT_APP_BASENAME` - Base url (in my case `/robohash/`)
@@ -218,9 +218,9 @@ In line 23 change the title.
 
 Ad 4. `src/entityApi.js`
 
-The colors map from line 4 is used to display proper backgrund behind the kitty. Since we will have only one background color you can remove it entirely. 
+The colors map from line 4 is used to display proper background behind the kitty. Since we will have only one background color you can remove it entirely. 
 
-Next thing we need to change is the `getEntityData` function. It is used to fetch details about particular entity from backend. It takes tokenId as a paramter and returns custom object which is used to display our enity on the page. Since we don't have backend we will have to connect it to our contract on ethereum network. For this we will again reach for our well known infura. 
+Next thing we need to change is the `getEntityData` function. It is used to fetch details about particular entity from backend. It takes tokenId as a parameter and returns custom object which is used to display our entity on the page. Since we don't have backend we will have to connect it to our contract on ethereum network. For this we will again reach for our well known infura. 
 
 First thing we need to do is to import web3 and our token's abi `robohash/build/contracts/RoboHashToken.json` (note: react doesn't allow to import files from outside of the src directory, you can copy your abi file to src directory or simlink it)
 
@@ -232,7 +232,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io
 const contractInstance = new web3.eth.Contract(roboHashTokenArtifacts.abi, '0xfa9d471300b0a4cc40ad4dfa5846864973520f45');
 ```
 
-Now we have an api for our contract, so we can impelment `getEntityData` function.
+Now we have an api for our contract, so we can implement `getEntityData` function.
 
 We will invoke `getTokenName` with entityId to obtain name of that token and later `getTokenUrl` to get the robohash image of our token.
 ```
