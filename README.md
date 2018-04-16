@@ -5,7 +5,6 @@ Today we present a short tutorial which shows how to build a social platform for
 To make this guide comperhensive the first part of this arcticle describes how to build your own erc721 token.
 Next we will try to figure out how to add unique avatars to our token.
 If you know how to do that or you plan to add a social layer to token which already exists you can skip that part.
-Last but not least we will modify cryptopurr's code inorder to add tokens issuing page.
 
 ## 1. Building your own ERC721 token
 We are going to use truffle to make your life easier, so if you don't know what truffle is, I encourage you to read about it before moving forward. (http://truffleframework.com/docs/)
@@ -190,7 +189,7 @@ If you call it and everything passes you will become an owner of your unique ERC
 ## 4. Building social layer
 To build our website we will use an existing one `https://userfeeds.github.io/cryptopurr/`. I'm not going to explain how this website works under the hood in details, rather then I will focus on changes we need to make to support our robohashTokens. 
 
-First let's clone cryptopurr:
+First let's clone cryptopurr to new directory:
 
 `git clone git@github.com:Userfeeds/cryptopurr.git`
 
@@ -205,7 +204,7 @@ Ad 1. `.env`
 Set following properties:
 - `REACT_APP_NAME` - Your app name (in my case RoboHash).
 - `REACT_APP_INTERFACE_VALUE` - Url where your website will be hosted. Although it is not neccessary you may benefit from it in the future.
-- `REACT_APP_ERC_721_NETWORK` - Name of the network where your ERC721 contract is deployed.
+- `REACT_APP_ERC_721_NETWORK` - Name of the network where your ERC721 contract is deployed. Please note that even that your address is deployed on particular network the users will be able to create messages also on other networks.
 - `REACT_APP_ERC_721_ADDRESS` - Address of your ERC721 contract. 
 - `REACT_APP_BASENAME` - Base url (in my case `/robohash/`)
 
