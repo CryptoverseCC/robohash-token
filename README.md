@@ -121,7 +121,7 @@ Ok, so let's summarize what we have by now.
 
 Users can claim their identities which are implemented as NFT and see their visual representation thanks to http://robohash.org. Isn't that great?
 
-Full contract code: (link)
+Full contract code: https://github.com/Userfeeds/robohash-token
 
 If you want to see how I wrote tests for this contract you can check it out here(link).
  
@@ -182,7 +182,7 @@ contract RoboHashToken  {
 }
 ```
 Having contract interaface is enough to be able to call its methods.
-Next on the right you need to paste your contract address to <<OBRAZEK>> and click "At address".
+Next on the right you need to paste your contract address to the input and click "At address" button.
 Now, below of "At address" button you should see our create method which takes one parameter. 
 If you call it and everything passes you will become an owner of your unique ERC721 token instance.
 
@@ -203,10 +203,10 @@ Ad 1. `.env`
 
 Set following properties:
 - `REACT_APP_NAME` - Your app name (in my case RoboHash).
-- `REACT_APP_INTERFACE_VALUE` - Url where your website will be hosted. Although it is not necessary you may benefit from it in the future.
-- `REACT_APP_ERC_721_NETWORK` - Name of the network where your ERC721 contract is deployed. Please note that even that your address is deployed on particular network the users will be able to create messages also on other networks.
+- `REACT_APP_INTERFACE_VALUE` - Url where your website will be hosted.
+- `REACT_APP_ERC_721_NETWORK` - Name of the network where your ERC721 contract is deployed. Please note that even that your contract is deployed on particular network users will be able to create messages also on other networks (The power of the cross-chain!!).
 - `REACT_APP_ERC_721_ADDRESS` - Address of your ERC721 contract. 
-- `REACT_APP_BASENAME` - Base url (in my case `/robohash/`)
+- `REACT_APP_BASENAME` - Base url (in my case `/robohash-book/`)
 
 Ad 2. `package.json`
 
