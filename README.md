@@ -99,22 +99,22 @@ I have also created a reversed mapping, so it would be easy to check the identif
 It is much more pleasant for the user if your token can be visualized. Cryptokitties tokens are represented by their png/svg images served from backend. The same story is with almost all collectibles. In order not to be worse, we will use https://robohash.org/ website to generate images from strings. Since we want all future website to display us in the same way we will add this logic to our contract. To do that we will have to concatenate robohash website with our token name and with '.png' postfix. Unfortunately solidity doesn't provide any built-in way to join strings, so we will do it manually. 
 
 ```
-	function getTokenUrl(string tokenName) pure public returns (string) {
-		return strConcat("http://robohash.org/", tokenName, ".png");
-	}
+function getTokenUrl(string tokenName) pure public returns (string) {
+	return strConcat("http://robohash.org/", tokenName, ".png");
+}
 
-	function strConcat(string first, string second, string third) internal pure returns (string) {
-	    bytes memory firstBytes = bytes(first);
-	    bytes memory secondBytes = bytes(second);
-	    bytes memory thirdBytes = bytes(third);
-	    string memory result = new string(firstBytes.length + secondBytes.length + thirdBytes.length);
-	    bytes memory resultBytes = bytes(result);
-	    uint k = 0;
-	    for (uint i = 0; i < firstBytes.length; i++) resultBytes[k++] = firstBytes[i];
-	    for (i = 0; i < secondBytes.length; i++) resultBytes[k++] = secondBytes[i];
-	    for (i = 0; i < thirdBytes.length; i++) resultBytes[k++] = thirdBytes[i];
-	    return result;
-	}
+function strConcat(string first, string second, string third) internal pure returns (string) {
+    bytes memory firstBytes = bytes(first);
+    bytes memory secondBytes = bytes(second);
+    bytes memory thirdBytes = bytes(third);
+    string memory result = new string(firstBytes.length + secondBytes.length + thirdBytes.length);
+    bytes memory resultBytes = bytes(result);
+    uint k = 0;
+    for (uint i = 0; i < firstBytes.length; i++) resultBytes[k++] = firstBytes[i];
+    for (i = 0; i < secondBytes.length; i++) resultBytes[k++] = secondBytes[i];
+    for (i = 0; i < thirdBytes.length; i++) resultBytes[k++] = thirdBytes[i];
+    return result;
+}
 ``` 
 
 Ok, so let's summarize what we have by now. 
