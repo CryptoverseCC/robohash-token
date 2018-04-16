@@ -222,8 +222,7 @@ The colors map from line 4 is used to display proper background behind the kitty
 
 Next thing we need to change is the `getEntityData` function. It is used to fetch details about particular entity from backend. It takes tokenId as a parameter and returns custom object which is used to display our entity on the page. Since we don't have backend we will have to connect it to our contract on ethereum network. For this we will again reach for our well known infura. 
 
-First thing we need to do is to import web3 and our token's abi `robohash/build/contracts/RoboHashToken.json` (note: react doesn't allow to import files from outside of the src directory, you can copy your abi file to src directory or simlink it)
-
+First thing we need to do is to import web3 and our token's abi. To do that compile your contracts and open `robohash/build/contracts/RoboHashToken.json`. You should see a very large json file. For us only relevant is what is under `abi` key. Copy that list to a file and put it inside your react application to `src/abi/RoboHashToken.json`.
 ```
 import Web3 from 'web3';
 const roboHashTokenArtifacts = require('./abi/RoboHashToken.json');
