@@ -191,13 +191,15 @@ To build our website we will use an existing one `https://userfeeds.github.io/cr
 
 First let's clone cryptopurr to a new directory:
 
-`git clone git@github.com:Userfeeds/cryptopurr.git`
+`git clone git@github.com:Userfeeds/cryptopurr.git robohash-book && cd robohash-book && git reset --hard 0626acd6bb7ce87bcd72cca4d8f1049241e8c0e6`
 
 We will be particularly interested in following files: (#todo: maybe high level overview of those files here)
-1. `.env` 
+1. `.env`
+  - File with all the necessary environment variables to get the app working.
 2. `package.json`
-3. `public/index.html`
-4. `src/entityApi.js`
+  - Standard `create-react-app` `package.json` file with all the application dependencies and scripts.
+3. `src/entityApi.js`
+  - Defines how the details about particular token are fetched from network and displayed on website.
 
 Ad 1. `.env`
 
@@ -207,16 +209,13 @@ Set following properties:
 - `REACT_APP_ERC_721_NETWORK` - Name of the network where your ERC721 contract is deployed. Please note that even that your contract is deployed on particular network users will be able to create messages also on other networks (The power of the cross-chain!!).
 - `REACT_APP_ERC_721_ADDRESS` - Address of your ERC721 contract. 
 - `REACT_APP_BASENAME` - Base url (in my case `/robohash-book/`)
+- `REACT_APP_GOOGLE_ANALYTICS_ID` - You can add your google analytics id here to track page views or remove it if you'r not going to use it.
 
 Ad 2. `package.json`
 
-Change `name` and `home_page` and put there same values as you did above.
+Change `name` and `homepage` and put there same values as you did above.
 
-Ad 3. `public/index.html`
-
-In line 23 change the title.
-
-Ad 4. `src/entityApi.js`
+Ad 3. `src/entityApi.js`
 
 The colors map from line 4 is used to display proper background behind the kitty. Since we will have only one background color you can remove it entirely. 
 
