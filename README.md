@@ -104,16 +104,16 @@ function getTokenUrl(string tokenName) pure public returns (string) {
 }
 
 function strConcat(string first, string second, string third) internal pure returns (string) {
-    bytes memory firstBytes = bytes(first);
-    bytes memory secondBytes = bytes(second);
-    bytes memory thirdBytes = bytes(third);
-    string memory result = new string(firstBytes.length + secondBytes.length + thirdBytes.length);
-    bytes memory resultBytes = bytes(result);
-    uint k = 0;
-    for (uint i = 0; i < firstBytes.length; i++) resultBytes[k++] = firstBytes[i];
-    for (i = 0; i < secondBytes.length; i++) resultBytes[k++] = secondBytes[i];
-    for (i = 0; i < thirdBytes.length; i++) resultBytes[k++] = thirdBytes[i];
-    return result;
+  bytes memory firstBytes = bytes(first);
+  bytes memory secondBytes = bytes(second);
+  bytes memory thirdBytes = bytes(third);
+  string memory result = new string(firstBytes.length + secondBytes.length + thirdBytes.length);
+  bytes memory resultBytes = bytes(result);
+  uint k = 0;
+  for (uint i = 0; i < firstBytes.length; i++) resultBytes[k++] = firstBytes[i];
+  for (i = 0; i < secondBytes.length; i++) resultBytes[k++] = secondBytes[i];
+  for (i = 0; i < thirdBytes.length; i++) resultBytes[k++] = thirdBytes[i];
+  return result;
 }
 ``` 
 
@@ -147,14 +147,14 @@ const Wallet = require('ethereumjs-wallet');
 module.exports = {
 	networks: {
 		ropsten: {
-		    provider: function(){
-		    	var ropstenPrivateKey = new Buffer(process.env["ROPSTEN_PRIVATE_KEY"], "hex")
-				var ropstenWallet = Wallet.fromPrivateKey(ropstenPrivateKey);
-		    	return new WalletProvider(ropstenWallet, "https://ropsten.infura.io/");
-		    },
-		    gas: 4600000,
-	      	gasPrice: web3.toWei("20", "gwei"),
-		    network_id: '3',
+		  provider: function(){
+        var ropstenPrivateKey = new Buffer(process.env["ROPSTEN_PRIVATE_KEY"], "hex");
+        var ropstenWallet = Wallet.fromPrivateKey(ropstenPrivateKey);
+        return new WalletProvider(ropstenWallet, "https://ropsten.infura.io/");
+      },
+      gas: 4600000,
+      gasPrice: web3.toWei("20", "gwei"),
+      network_id: '3',
 		}
 	}
 };
@@ -178,7 +178,7 @@ Remove all the existing code. And paste following:
 pragma solidity ^0.4.21;
 
 contract RoboHashToken  {
-    function create(string name) public;	
+  function create(string name) public;	
 }
 ```
 Having contract interaface is enough to be able to call its methods.
