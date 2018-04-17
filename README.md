@@ -198,7 +198,9 @@ We will be particularly interested in following files: (#todo: maybe high level 
   - File with all the necessary environment variables to get the app working.
 2. `package.json`
   - Standard `create-react-app` `package.json` file with all the application dependencies and scripts.
-3. `src/entityApi.js`
+3. `public/index.html` 
+  - Here we need to set the title of the html page.
+4. `src/entityApi.js`
   - Defines how the details about particular token are fetched from network and displayed on website.
 
 Ad 1. `.env`
@@ -215,7 +217,11 @@ Ad 2. `package.json`
 
 Change `name` and `homepage` and put there same values as you did above.
 
-Ad 3. `src/entityApi.js`
+Ad 3. `public/index.html`
+
+In line 23 change the title.
+
+Ad 4. `src/entityApi.js`
 
 The colors map from line 4 is used to display proper background behind the kitty. Since we will have only one background color you can remove it entirely. 
 
